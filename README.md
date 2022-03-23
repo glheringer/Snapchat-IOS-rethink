@@ -1,1 +1,1 @@
-# Snapchat-IOS-rethink
+# Study Snapchat app in IOS

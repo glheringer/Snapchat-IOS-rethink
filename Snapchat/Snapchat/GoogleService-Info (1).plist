@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>621821719935-8cr06rb5t5dfjlejh7798ufh10f0ff53.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.621821719935-8cr06rb5t5dfjlejh7798ufh10f0ff53</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDiXItLhSJNGWJTdt2iY1JRtGt4GJJeLV0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>621821719935</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Rethink.Snapchat</string>
+	<key>PROJECT_ID</key>
+	<string>snapchat-deff4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>snapchat-deff4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:621821719935:ios:b03f94d48e7ed5936b964a</string>
+</dict>
+</plist>

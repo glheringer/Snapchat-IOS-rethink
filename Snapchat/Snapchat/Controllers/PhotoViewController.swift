@@ -74,6 +74,17 @@ class PhotoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         }
     
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "selectUserSegue"{
+            
+            let userViewController = segue.destination as! UsersTableViewController
+            
+            userViewController.photoDescription = self.photoDescription.text!
+            userViewController.imageId = self.imageId
+            userViewController.url = sender as! String
+        }
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
        
         let recoveredImage = info [ UIImagePickerController.InfoKey.originalImage ] as! UIImage

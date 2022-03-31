@@ -47,32 +47,32 @@ class SnapDetailsViewController: UIViewController {
         }
     
     }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        let auth = Auth.auth()
-//
-//        if let loggedUserId = auth.currentUser?.uid{
-//
-//            //Remover nó do Database
-//            let database = Database.database().reference()
-//            let users = database.child("usuarios")  //acessando nó usuarios
-//            let snaps = users.child(loggedUserId).child("snaps")// acessando nó snaps
-//
-//            snaps.child(self.snap.identifier).removeValue()//acessando o snap especificamente e removendo valor ( o apagando)
-//
-//            //Remover imagem do Storage
-//            let storage = Storage.storage().reference()
-//            let images = storage.child("imagens")
-//
-//                    images.child("\(self.snap.idImage).jpg").delete { erro in  //acessando a imagem especificamente e removendo valor ( a apagando)
-//                        if erro == nil{
-//                            print("Sucesso ao excluir imagem")
-//                        }
-//                        else{
-//                            print("Falha ao excluir imagem")
-//                        }
-//                    }
-//    }
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        let auth = Auth.auth()
+
+        if let loggedUserId = auth.currentUser?.uid{
+
+            //Remover nó do Database
+            let database = Database.database().reference()
+            let users = database.child("usuarios")  //acessando nó usuarios
+            let snaps = users.child(loggedUserId).child("snaps")// acessando nó snaps
+
+            snaps.child(self.snap.identifier).removeValue()//acessando o snap especificamente e removendo valor ( o apagando)
+
+            //Remover imagem do Storage
+            let storage = Storage.storage().reference()
+            let images = storage.child("imagens")
+
+                    images.child("\(self.snap.idImage).jpg").delete { erro in  //acessando a imagem especificamente e removendo valor ( a apagando)
+                        if erro == nil{
+                            print("Sucesso ao excluir imagem")
+                        }
+                        else{
+                            print("Falha ao excluir imagem")
+                        }
+                    }
+    }
+    }
     
 
 

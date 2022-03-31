@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,16 +11,43 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleAspectFit" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snap-tiktok-1" translatesAutoresizingMaskIntoConstraints="NO" id="rzF-e0-Idh">
+                                <rect key="frame" x="-11" y="136" width="368" height="204"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="j3E-6h-nYL">
+                                <rect key="frame" x="129" y="339" width="62" height="38"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.99839419129999996" green="0.99187940360000004" blue="0.3959135413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="rzF-e0-Idh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="Dno-AL-b0B"/>
+                            <constraint firstItem="rzF-e0-Idh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-27" id="H5P-6T-8In"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rzF-e0-Idh" secondAttribute="trailing" constant="-53" id="Qe9-rv-31k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rzF-e0-Idh" secondAttribute="bottom" constant="179" id="VjN-Uq-gGO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rzF-e0-Idh" secondAttribute="bottom" constant="179" id="aMv-lu-3sv"/>
+                            <constraint firstAttribute="trailing" secondItem="rzF-e0-Idh" secondAttribute="trailing" constant="-37" id="bmZ-rO-7d3"/>
+                            <constraint firstItem="rzF-e0-Idh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-11" id="dya-eq-Oaf"/>
+                            <constraint firstItem="j3E-6h-nYL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="339" id="ea7-c1-uwC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j3E-6h-nYL" secondAttribute="trailing" constant="129" id="eta-xb-GHr"/>
+                            <constraint firstItem="j3E-6h-nYL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="gGc-Tb-TIa"/>
+                            <constraint firstItem="rzF-e0-Idh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="rbz-Kr-wdp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j3E-6h-nYL" secondAttribute="bottom" constant="142" id="xop-9U-erW"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="snap-tiktok-1" width="850" height="446"/>
+    </resources>
 </document>

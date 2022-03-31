@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
                                             let userID = Auth.auth().currentUser!.uid //recuperando ID do usuario
                                             let userData = ["nome": name , "email" : email] //criando dicionario para dados do usuario
                                             
-                                            users.child(userID).setValue(userData) //criando nó com o id do usuario e atribuindo dicionario userData dentro dele
+                                            users.child(userID).setValue(userData) //criando nó com o id do usuario e atribuindo dicionario dentro dele
                                             
                                             self.performSegue(withIdentifier: "registerLoginSegue", sender: nil) //usuario criado
                                             
@@ -53,7 +53,7 @@ class RegisterViewController: UIViewController {
                                         }
                                     }
                                     else{
-                                        
+                   
                                         //Tratar erros de validaçao
                                         /* Principais errros:
                                          "ERROR_INVALID_EMAIL"
@@ -63,31 +63,32 @@ class RegisterViewController: UIViewController {
                                         
                                         //Para capturar o codigo exato da mensagem de erro: Transformar o erro em um Objeto especial NSError
                                         let erroR = erro! as NSError
-                                        if let errorKey = erroR.userInfo["error_name"]{
+    
+                                         let errorText = erroR.localizedDescription
                                             
-                                            let errorText = errorKey as! String
-                                            var message = ""
-                                            
-                                            switch(errorText) {
-                                            case "ERROR_INVALID_EMAIL" :
-                                                message = "E-mail inválido, digite um e-mail válido."
-                                                break
-                                                
-                                            case  "ERROR_WEAK_PASSWORD" :
-                                                message = "Senha precisa ter no mínimo 6 caracteres, sendo dois números."
-                                                break
-                                                
-                                            case "ERROR_EMAIL_ALREADY_IN_USE":
-                                                message = "O e-mail digitado já está em uso, cadastre outro e-mail."
-                                                break
-                                                
-                                            default:
-                                                message = "Dados digitados nao são inválidos."
-                                            }
-                                            //Exibindo alerta com a mensagem do erro
-                                            let alert = Alert(title: "Dados digitados nao são inválidos.", message: message)
-                                            self.present(alert.getAlert(), animated: true, completion: nil)
+                                        var message = ""
+                                        
+                                        switch(errorText) {
+                                       
+                                        case "The email address is badly formatted.":
+                                            message = "O email foi digitado em um formato incorreto"
+                                            break
+
+                                        case "The email address is already in use by another account.":
+                                            message = "Esse email já está em uso!"
+                                            break
+
+                                        case "The password must be 6 characters long or more.":
+                                            message = "As senhas devem ser acima de 6 caracteres(min: 3 letras e 3 números"
+                                            break
+
+                                        default:
+                                            message = "Dados digitados nao são inválidos."
                                         }
+                                        //Exibindo alerta com a mensagem do erro
+                                        let alert = Alert(title: "Dados digitados nao são inválidos.", message: message)
+                                        self.present(alert.getAlert(), animated: true, completion: nil)
+                                    
                                         
                                         
                                     }

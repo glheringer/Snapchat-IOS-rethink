@@ -25,17 +25,25 @@ class UsersTableViewController: UITableViewController {
         
              
             let data = snapshot.value as? NSDictionary //transformando os dados do snapshot em dicionario
+            
+            //Recupera dados usuário logado
+            let auth =  Auth.auth()
+            let loggedUserID = auth.currentUser?.uid
+            
             //Recuperando dados do usuario a partir do snapshot
-            let userEmail = data!["email"] as! String
             let userName = data!["nome"] as! String
+            let userEmail = data!["email"] as! String
             let userID = snapshot.key
             
             //Criando usuario
             let user = User(name: userName, email: userEmail, uid: userID)
             
             //Adicionando ao array de usuarios
-            self.users.append( user )
-            
+            if userID != loggedUserID{ //Só vai adicionar esse snap no array de snap exibido caso o id do usuário que esteja sendo adicionado seja  diferente do id do usuario logado -> (Esse array é que controla o que é exibido na lista)
+                
+                self.users.append( user )
+
+            }
             //Recarregar a classe para o array ser populado
             self.tableView.reloadData()
         }
@@ -65,6 +73,7 @@ class UsersTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Setar snap para usuario da linha selecionada
         let selectedUser = self.users[indexPath.row]
         let IDselectedUser = selectedUser.uid
         
@@ -79,43 +88,27 @@ class UsersTableViewController: UITableViewController {
         if let IDloggedUser = auth.currentUser?.uid{ //pegando ID do usuario logado
             
             let loggedUser = users.child(IDloggedUser) //Apontando usuario logado pelo ID
+            
             loggedUser.observeSingleEvent(of: DataEventType.value) { (snapshot) in //recuperando dados do usuario logado
-                
+                    
                 let data = snapshot.value as? NSDictionary // transformando dados em dicionario
                 
                 let snap = [
-                    "from": data!["email"] as? String, //adicionando no snap dados do dicionario, que corresponde aos dados do usuario logado
-                    "name": data!["nome"] as? String,
+                    "from": data?["email"] as! String, //adicionando no snap dados do dicionario, que corresponde aos dados do usuario logado
+                    "name": data?["nome"] as! String,
                     "description": self.photoDescription,
                     "urlImage": self.url,
                     "idImage": self.imageId
                 ]
+            
+                
                 snaps.childByAutoId().setValue(snap) //childByAutoID gera uma key  unica e diferente para o nó desejado
                 
+                self.navigationController?.popToRootViewController(animated: true) //Faz com que volte ao view controller de origem, nesse contexto é caso o usuário clique em uma linha
             }
         }
        
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
 }
